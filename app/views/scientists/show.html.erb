@@ -9,6 +9,19 @@
   <% end %>
 </ul>
 <br>
+<h1>Sign Me Up for a Mission!</h1>
+<%= form_for @mission do |f| %>
+  <%= f.hidden_field :scientist_id %>
+
+  <%= f.label :name %><br>
+  <%= f.text_field :name %><br>
+
+  <%= f.label :planet_id %><br>
+  <%= f.collection_select :planet_id, @planets, :id, :name %><br>
+
+  <%= f.submit %>
+<% end %>
+<br>
 <br>
 <%= button_to "Edit this Scientist", edit_scientist_path(@scientist), method: :get %>
 <%= button_to "Delete this Scientist", scientist_path(@scientist), method: :delete, data: { confirm: "Are you sure you want to erase this scientist from the face of the planet? ;)" } %>

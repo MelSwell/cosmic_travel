@@ -5,6 +5,8 @@ class ScientistsController < ApplicationController
 
   def show
     @scientist = Scientist.find(params[:id])
+    @mission = Mission.new(scientist_id: params[:id])
+    @planets = Planet.all
   end
 
   def new
