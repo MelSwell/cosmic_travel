@@ -21,3 +21,9 @@
     <% end %>
   </tbody>
 </table>
+<h1>The most visited planet is:</h1>
+<%= link_to @most_visited_planet.name, planet_path(@most_visited_planet) %>
+<br>
+<br>
+<br>
+<%= button_to "Make a New Mission", new_mission_path, method: :get %>

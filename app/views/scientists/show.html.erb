@@ -1,0 +1,14 @@
+<h1><%= @scientist.name %> Details:</h1>
+<br>
+<h3>Field of Study: <%= @scientist.field_of_study %></h3>
+<br>
+<h3>Planets Visited:</h3>
+<ul>
+  <% @scientist.missions.each do |m|%>
+    <li><%= link_to m.planet.name, planet_path(m.planet) %>, Mission: <%= m.name %> </li>
+  <% end %>
+</ul>
+<br>
+<br>
+<%= button_to "Edit this Scientist", edit_scientist_path(@scientist), method: :get %>
+<%= button_to "Delete this Scientist", scientist_path(@scientist), method: :delete, data: { confirm: "Are you sure you want to erase this scientist from the face of the planet? ;)" } %>
